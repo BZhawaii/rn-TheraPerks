@@ -1,0 +1,3 @@
+rootProject.name = 'TheraPerks'
+
+include ':app'
