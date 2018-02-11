@@ -1,39 +1,75 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
-  Text,
+  Image,
   View
 } from 'react-native';
+import {
+  Container, 
+  Header,
+  Title,
+  Content,
+  Footer,
+  FooterTab,
+  Button,
+  Left,
+  Right,
+  Body,
+  Icon,
+  Text,
+  CardItem,
+  ListItem
+} from 'native-base';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent>
+              <Icon name='menu' />
+            </Button>
+          </Left>
+
+          <Body>
+            <Title style={ styles.title }>TheraPERKS</Title>
+          </Body>
+            
+          <Right>
+
+          </Right>
+        </Header>
+
+        <Content style={ styles.mainBody }>
+            <Image source={require('./app/src/images/logo.jpg')} style= {styles.logo } />
+            <View style={ styles.buttonList } >
+              <ListItem>
+                <Button success><Text>Login</Text></Button>
+              </ListItem>
+              <ListItem>
+                <Button success><Text>Register</Text></Button>
+              </ListItem>
+            </View>
+        </Content>
+
+        <Footer>
+          <Button transparent>
+            <Icon name='bicycle' />
+          </Button>
+          <Button transparent>
+            <Icon name='home' />
+          </Button>
+          <Button transparent>
+            <Icon name='settings' />
+          </Button>
+        </Footer>
+      </Container>
+
     );
   }
 }
@@ -45,10 +81,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  title: {
+    color: 'green'
+  },
+  logo: {
+    height: 300,
+    width: null,
+  },
+  mainBody: {
+    flex: 1,
+    paddingTop: 40,
+  },
+  buttonList: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   instructions: {
     textAlign: 'center',
