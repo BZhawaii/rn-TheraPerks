@@ -21,11 +21,20 @@ import {
   CardItem,
   ListItem
 } from 'native-base';
+import { StackNavigator } from 'react-navigation';
+import About from './app/components/AboutPage/About';
+import Tab from './app/config/router';
+
+const Application = StackNavigator({
+  About: { screen: About },
+},{
+    navigationOptions: {
+      header: false,
+    }
+  });
 
 
-
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
       <Container>
@@ -56,6 +65,8 @@ export default class App extends Component<Props> {
               </ListItem>
             </View>
         </Content>
+
+        <Tab />
 
         <Footer>
           <Button transparent>

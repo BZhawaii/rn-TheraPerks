@@ -2,36 +2,30 @@ import React from 'react';
 import { TabNavigator } from 'react-navigation';
 import { Icon } from 'native-base';
 
-import AboutPage from '../screens/AboutPage/About';
-import LandingPage from '../screens/LandingPage/Landing';
-import RegisterPage from '../screens/RegisterPage/Register';
+import AboutPage from '../components/AboutPage/About';
+import LoginPage from '../components/Settings/Login';
+import RegisterPage from '../components/Settings/Register';
 
-export const Tabs = TabNavigator({
+export default Tabs = TabNavigator({
     About: {
         screen: AboutPage,
         navigationOptions: {
-            tabBar: {
-                label: 'About',
-                icon: ({ tintColor}) => <Icon name='list' size={35} color={tintColor} />
-            }
+            tabBarLabel: 'About Page',
+            tabBarIcon: ({ tintColor}) => <Icon name='list' size={35} color={tintColor} />           
         }
     },
-    Home: {
-        screen: LandingPage,
+    Login: {
+        screen: LoginPage,
         navigationOptions: {
-            tabBar: {
-                label: 'About',
-                icon: ({ tintColor}) => <Icon name='list' size={35} color={tintColor} />
-            }
+            tabBarLabel: 'Login Page',
+            tabBarIcon: ({ tintColor}) => <Icon name='list' size={35} color={tintColor} />           
         }
     },
     Settings: {
         screen: RegisterPage,
         navigationOptions: {
-            tabBar: {
-                label: 'About',
-                icon: ({ tintColor}) => <Icon name='list' size={35} color={tintColor} />
-            }
+            tabBarLabel: 'Register Page',
+            tabBarIcon: ({ tintColor}) => <Icon name='list' size={35} color={tintColor} />           
         }
     }
 })
