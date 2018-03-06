@@ -6,6 +6,10 @@ import AboutPage from '../components/AboutPage/About';
 import LoginPage from '../components/Settings/Login';
 import RegisterPage from '../components/Settings/Register';
 import LandingPage from '../components/LandingPage/Landing';
+import QuestionOnePage from '../components/QuestionPages/QOne';
+import QuestionTwoPage from '../components/QuestionPages/QTwo';
+import QuestionThreePage from '../components/QuestionPages/QThree';
+
 
 
 export default Tabs = TabNavigator({
@@ -30,10 +34,10 @@ export default Tabs = TabNavigator({
             tabBarIcon: ({ tintColor}) => <Icon name='person' size={35} color={tintColor} />           
         }
     },
-    Settings: {
+    QOne: {
         screen: RegisterPage,
         navigationOptions: {
-            tabBarLabel: 'Register',
+            tabBarLabel: 'QOne',
             tabBarIcon: ({ tintColor}) => <Icon name='settings' size={35} color={tintColor} />           
         }
     },
