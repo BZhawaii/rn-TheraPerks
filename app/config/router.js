@@ -6,7 +6,7 @@ import AboutPage from '../components/AboutPage/About';
 import LoginPage from '../components/Settings/Login';
 import RegisterPage from '../components/Settings/Register';
 import LandingPage from '../components/LandingPage/Landing';
-import QuestionOnePage from '../components/QuestionPages/QOne';
+import QuestionOnePage from '../components/QuestionPages/One';
 import QuestionTwoPage from '../components/QuestionPages/QTwo';
 import QuestionThreePage from '../components/QuestionPages/QThree';
 
@@ -35,7 +35,7 @@ export default Tabs = TabNavigator({
         }
     },
     QOne: {
-        screen: RegisterPage,
+        screen: QuestionOnePage,
         navigationOptions: {
             tabBarLabel: 'QOne',
             tabBarIcon: ({ tintColor}) => <Icon name='settings' size={35} color={tintColor} />           

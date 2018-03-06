@@ -11,10 +11,10 @@ import {
     Text
 } from 'native-base';
 
-export default class QOne extends Component {
+export default class One extends Component {
     render() {
         return(
-            <Container>
+            <Container style={ styles.container }>
                 <Header>
                     <Text>I am currently feeling:</Text>
                 </Header>
@@ -60,3 +60,17 @@ export default class QOne extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#2896d3',
+        color: 'white',
+        paddingTop: 20,
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingBottom: 30
+    },
+  });
