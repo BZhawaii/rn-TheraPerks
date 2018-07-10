@@ -1,35 +1,78 @@
+'use strict';
 import React, { Component } from 'react';
 import {
-  Platform,
-  StyleSheet,
-  Image,
-  View
+  StyleSheet
 } from 'react-native';
 import {
   Container, 
   Header,
   Title,
-  Content,
-  Button,
   Left,
   Right,
   Body,
   Icon,
-  Text,
-  CardItem,
-  ListItem
+  Footer
 } from 'native-base';
-import { StackNavigator } from 'react-navigation';
-import About from './app/components/AboutPage/About';
-import Tab from './app/config/router';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 
-const Application = StackNavigator({
-  About: { screen: About },
-},{
-    navigationOptions: {
-      header: false,
-    }
-  });
+//TabNavigator screens
+import AboutPage from './app/components/AboutPage/About';
+import LoginPage from './app/components/Settings/Login';
+import LandingPage from './app/components/LandingPage/Landing';
+
+//StackNavigator screens
+import One from './app/components/QuestionPages/One';
+import TwoPage from './app/components/QuestionPages/Two';
+import ThreePage from './app/components/QuestionPages/Three';
+import PositiveStatement from './app/components/FollowUpPages/PositiveStatement';
+import Finished from './app/components/FollowUpPages/Finished';
+
+
+const Stack = StackNavigator({
+  One: { screen: One },
+  Two: { screen: TwoPage}, 
+  Three: { screen: ThreePage},
+  Login: {screen: LoginPage},
+  PositiveStatement: {screen: PositiveStatement},
+  Finished: {screen: Finished},
+  Landing: {screen: LandingPage},
+}, {
+  initialRouteName: 'One',
+})
+
+const Tabs = TabNavigator({
+  Landing: {
+      screen: LandingPage,
+      navigationOptions: {
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ tintColor}) => <Icon name='home' size={35} color={tintColor} />           
+      }
+  },
+  About: {
+      screen: AboutPage,
+      navigationOptions: {
+          tabBarLabel: 'About',
+          tabBarIcon: ({ tintColor}) => <Icon name='medkit' size={35} color={tintColor} />           
+      }
+  },
+  Login: {
+      screen: LoginPage,
+      navigationOptions: {
+          tabBarLabel: 'Consent',
+          tabBarIcon: ({ tintColor}) => <Icon name='person' size={35} color={tintColor} />           
+      }
+  },
+  One: {
+      screen: Stack,
+      navigationOptions: {
+          tabBarLabel: 'Survey',
+          tabBarIcon: ({ tintColor}) => <Icon name='settings' size={35} color={tintColor} />           
+      }
+  }
+}, {
+  order: ['Landing', 'About', 'Login', 'One']
+})
+
 
 
 export default class App extends Component {
@@ -38,9 +81,7 @@ export default class App extends Component {
       <Container>
         <Header style={ styles.head } >
           <Left>
-            <Button >
-              <Icon name='bicycle' />
-            </Button>
+           
           </Left>
 
           <Body>
@@ -52,11 +93,12 @@ export default class App extends Component {
           </Right>
         </Header>
 
-        <Content style={ styles.mainBody }>
-           <Application />
-           <Tab />
+        
+        <Footer style= { styles.tabs }>
+          <Tabs />
+        </Footer>
+      
 
-        </Content>
       </Container>
 
     );
@@ -65,13 +107,16 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   head: {
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
+    height: 70
   },
   title: {
     color: 'white'
   },
   mainBody: {
+    flex: 1
+  },
+  tabs: {
     flex: 1,
-    alignSelf: 'stretch',
   },
 });

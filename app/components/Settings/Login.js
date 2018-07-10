@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import {
-    Platform,
     StyleSheet,
     Text,
     View,
-    TextInput,
     KeyboardAvoidingView,
     TouchableOpacity,
-    AsyncStorage
+    AsyncStorage,
+    Button
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 
 export default class Login extends Component {
 
@@ -33,24 +31,26 @@ export default class Login extends Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation;
         return(
             <KeyboardAvoidingView behavior='padding' style={ styles.wrapper } >
                 <View style={ styles.container } >
-                    <Text style={ styles.header } >Login</Text>
+                    <Text style={ styles.header } >Consent Page</Text>
 
-                    <TextInput style={ styles.textInput } placeholder='Username'
-                        onChangeText={ (username) => this.setState({username}) }
-                        underlineColorAndroid='transparent'
+                    <Text style={ styles.text } >The purpose of this research is to examine the relationship between self-awareness and professionalism. Procedures to be followed: This application will prompt you about your mood and emotional responses. </Text>
+
+                    <Text style={ styles.text } >Discomforts and Risks: There are no risks in participating in this research beyond those experienced in everyday life. </Text>
+
+                    <Text style={ styles.text } >Benefits: This research may provide a better understanding of how self-awareness and emotions impact our interactions with others.</Text>
+
+                    <Text style={ styles.text } >Voluntary Participation: Your decision to be in this research is voluntary. You will not be paid for this research.</Text>
+
+                    <Button title="I Consent"
+                    color="blue"
+                    accessibilityLabel="Consent button to submit answer and move to next question"
+                    onPress={ () => navigate('One') }
                     />
-
-                      <TextInput style={ styles.textInput } placeholder='Password'
-                        onChangeText={ (password) => this.setState({password}) }
-                        underlineColorAndroid='transparent'
-                    />
-
-                    <TouchableOpacity style={ styles.btn } onPress={ this.login } >
-                        <Text>Log in</Text>
-                    </TouchableOpacity>
+                    
 
                 </View>
             </KeyboardAvoidingView>
@@ -91,14 +91,14 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#2896d3',
+        backgroundColor: 'white',
         paddingLeft: 40,
         paddingRight: 40
     },
     header: {
         fontSize: 24,
-        marginBottom: 60,
-        color: '#fff',
+        marginBottom: 30,
+        color: 'black',
         fontWeight: 'bold'
     },
     textInput: {
@@ -107,10 +107,16 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         backgroundColor: '#fff',
     },
+    text: {
+        marginBottom: 20
+    },
     btn: {
         alignSelf: 'stretch',
         backgroundColor: 'blue',
         padding: 16,
         alignItems: 'center'
-    } 
+    },
+    btnText: {
+        color: 'white'
+    }
 });

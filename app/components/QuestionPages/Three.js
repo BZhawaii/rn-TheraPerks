@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
-} from 'react-native';
-import {
     Container,
     Header,
     Content,
@@ -11,35 +8,43 @@ import {
     Text
 } from 'native-base';
 
-export default class QThree extends Component {
+export default class Three extends Component {
+    static navigationOptions = {
+        title: 'What could I do different?',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            
+        }
+    };
+
     render() {
+        const { navigate } = this.props.navigation;
         return(
             <Container>
-                <Header>What could I do different next time?</Header>
+                
                 <Content>
                     <List>
-                        <ListItem>
+                        <ListItem onPress={ () => navigate('Finished') }>
                             <Text>Nothing Different</Text>
                         </ListItem>
-                        <ListItem>
+                        <ListItem onPress={ () => navigate('Finished') }>
                             <Text>Remain Calm</Text>
                         </ListItem>                        
-                        <ListItem>
+                        <ListItem onPress={ () => navigate('Finished') }>
                             <Text>Talk to Someone</Text>
                         </ListItem>                        
-                        <ListItem>
+                        <ListItem onPress={ () => navigate('Finished') }>
                             <Text>Take Deep Breaths</Text>
                         </ListItem>                        
-                        <ListItem>
+                        <ListItem onPress={ () => navigate('Finished') }>
                             <Text>Reflect on Feelings</Text>
                         </ListItem>
-                        <ListItem>
+                        <ListItem onPress={ () => navigate('Finished') }>
                             <Text>Be Compasionate</Text>
                         </ListItem> 
                                          
                     </List>
                 </Content>
-               
             </Container>
         )
     }

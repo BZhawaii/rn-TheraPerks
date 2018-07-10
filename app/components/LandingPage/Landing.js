@@ -1,42 +1,29 @@
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Image,
   View
 } from 'react-native';
 import {
-  Container, 
-  Header,
-  Title,
-  Content,
-  Footer,
-  FooterTab,
   Button,
-  Left,
-  Right,
-  Body,
-  Icon,
   Text,
-  CardItem,
   ListItem
 } from 'native-base';
-import { StackNavigator } from 'react-navigation';
-
-
 
 export default class Landing extends Component {
   render() {
+    const { navigate } = this.props.navigation;
+
     return (
        
         <View style={ styles.container }>
             <Image source={require('../../src/images/logo.jpg')} style= {styles.logo } />
             <View style={ styles.buttonList } >
               <ListItem noBorder>
-                <Button primary><Text>Login</Text></Button>
+                <Button primary onPress={ () => navigate('Login') }><Text>Consent</Text></Button>
               </ListItem>
               <ListItem noBorder>
-                <Button primary><Text>Register</Text></Button>
+                <Button primary onPress={ () => navigate('One') }><Text>Survey</Text></Button>
               </ListItem>
             </View>
         </View>
@@ -50,7 +37,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   logo: {
-    height: 300,
+    paddingTop: 200,
+    height: 380,
     width: null,
   },
   buttonList: {
